@@ -1,31 +1,29 @@
 <?php
-    session_start();
-    if(empty($_POST) or empty($_POST["usuario"]) or empty($_POST["senha"])) {
-        print"<script>localtion.href='index.php';</script>";
-    }
+session_start();
+include('config.php');
 
-    include('config.php');
+if(empty($_POST['usuario']) or empty($_POST['senha'])) {
+    header('Location: index.php');
+    exit();
+}
 
-    $usuario = $_POST["usuario"];
-    $senha = $_POST["senha"];
+$usuario = mysqli_real_escape_string($conn, $_POST['usuario']);
+$senha = mysqli_real_escape_string($conn, $_POST['senha']);
 
-    $sql = "SELECT * FROM usuarios
-            WHERE usuario = '{$usuario}'
-            AND senha = '".md5($senha)."'";
+$query = "select nome from usuarios where usuario = '{$usuario}' and senha = md5('{$senha}')";
 
-    $res = $conn->query($sql) or die($conn->error);
+$result = mysqli_query($conn, $query);
     
-    $row = $res->fetch_object();
+$row = mysqli_num_rows($result);
 
-    $qtd = $res->num_rows;
-
-    if($qtd > 0) {
-        $_SESSION["usuario"] = $usuario;
-        $_SESSION["nome"] = $row->nome;
-        $_SESSION["tipo"] = $row->tipo;
-    print"<script>location.href='dashboard.php';</script>";
-    } else {
-        print"<script>alert('Usuário e/ou senha incorreto(s)');</script>";
-        print"<script>location.href='index.php';</script>";
-    }
+if($row == 1) {
+    $usuario_bd = mysqli_fetch_assoc($result);
+    $_SESSION['nome'] = $usuario_bd['nome'];
+    header('Location: dashboard.php');
+    exit();
+} else {
+    $_SESSION['nao_autenticado'] = true;
+    header('Location: index.php');
+    exit();
+}
 ?>

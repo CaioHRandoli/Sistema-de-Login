@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +24,16 @@
                             <div class="card-body">
                                 <h3>Acesso ao Sistema</h3>
                             </div>
+                            <?php
+                            if (isset($_SESSION['nao_autenticado'])) :
+                            ?>
+                            <div class="alert-danger">
+                                <h5>Erro: usuário e/ou senha incorreto(s)!</h5>
+                            </div>
+                            <?php
+                            endif;
+                            unset($_SESSION['nao_autenticado']);
+                            ?>
                             <div class="card-body">
                                 <form action="login.php" method="POST">
                                     <div>
@@ -39,6 +52,13 @@
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">Enviar</button>
                                         </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-body">
+                                <form action="cadastrar.php" method="POST">
+                                    <div class="mb-4">
+                                        <a href="cadastro.php" class="link-primary">Não é cadastrado? Clique para criar uma conta</a>
                                     </div>
                                 </form>
                             </div>

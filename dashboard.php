@@ -1,7 +1,8 @@
 <?php
 session_start();
-if (empty($_SESSION)) {
-    print "<script>location.href='index.php';</script>";
+if(empty($_SESSION['nome'])) {
+    header('Location: index.php');
+    exit();
 }
 ?>
 
@@ -20,12 +21,12 @@ if (empty($_SESSION)) {
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a href="" class="nav-brand">Teste</a>
-            <?php
-            print "Olá " . $_SESSION["nome"];
-            print "<a href='logout.php' class='btn btn-danger'>Sair</a>";
-            ?>
+            <h2> Olá, <?php echo $_SESSION['nome'];?></h2>
+            <h2><a href="logout.php" class='btn btn-danger'>Sair</a></h2>
+            
         </div>
     </nav>
 </body>
 
 </html>
+
