@@ -19,34 +19,41 @@ session_start();
                 <div class="col-lg-4 offset-lg-4">
                     <div class="card">
                         <div class="card-body">
-                            <h3>Cadastro de Usuário</h3>
+                            <h3>Editar Usuário</h3>
                         </div>
+                        <?php
+                        include("config.php");
+                        $sql = "SELECT * FROM usuarios WHERE id=".$_REQUEST["id"];
+                        $res = $conn->query($sql);
+                        $row = $res->fetch_object();
+                        ?>
                         <div class="card-body">
                             <form action="cadastrar.php" method="POST">
-                                <input type="hidden" name="acao" value="cadastrar">
+                                <input type="hidden" name="acao" value="editar">
+                                <input type="hidden" name="id" value="<?php print $row->id; ?>">
                                 <div class="mb-3">
                                     <label>Nome</label>
-                                    <input type="text" name="nome" class="form-control">
+                                    <input type="text" name="nome" value="<?php print $row->nome; ?>" class="form-control">
                                 </div>
                                 <div class="mb3">
                                     <label>E-mail</label>
-                                    <input type="email" name="email" class="form-control">
+                                    <input type="email" name="email" value="<?php print $row->email; ?>" class="form-control">
                                 </div>
                                 <div class="mb3">
                                     <label>Usuário</label>
-                                    <input type="text" name="usuario" class="form-control">
+                                    <input type="text" name="usuario" value="<?php print $row->usuario; ?>" class="form-control">
                                 </div>
                                 <div class="mb3">
                                     <label>Tipo</label>
-                                    <input type="number" name="tipo" class="form-control">
+                                    <input type="number" name="tipo" value="<?php print $row->tipo; ?>" class="form-control">
                                 </div>
                                 <div class="mb3">
                                     <label>Senha</label>
-                                    <input type="password" name="senha" class="form-control">
+                                    <input type="password" name="senha" class="form-control" required>
                                 </div>
                                 <div class="mb3">
                                     <label>Data Nascimento</label>
-                                    <input type="date" name="data_nasc" class="form-control">
+                                    <input type="date" name="data_nasc" value="<?php print $row->data_nasc; ?>" class="form-control">
                                 </div>
                                 <div class="mb3">
                                     <button type="submit" class="btn btn-primary">Enviar</button>

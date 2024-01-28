@@ -1,8 +1,8 @@
 <?php
-    define('HOST', '127.0.0.1');
-    define('USER', 'root');
-    define('PASS', '');
-    define('BASE', 'sislogin');
+define('HOST', 'localhost');
+define('USER', 'root');
+define('PASS', '');
+define('BASE', 'sistemalogin');
 
-    $conn = mysqli_connect(HOST, USER, PASS, BASE) or die ('Não foi possível conectar!');
+$conn = new mysqli(HOST, USER, PASS, BASE);
 ?>

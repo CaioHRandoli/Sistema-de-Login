@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Jan-2024 às 00:28
+-- Tempo de geração: 28-Jan-2024 às 22:02
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `sislogin`
+-- Banco de dados: `sistemalogin`
 --
 
 -- --------------------------------------------------------
@@ -28,21 +28,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `usuario` varchar(200) NOT NULL,
-  `senha` varchar(32) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `data_cadastro` datetime NOT NULL
+  `id` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `usuario` varchar(45) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `tipo` char(1) NOT NULL,
+  `data_nasc` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `usuario`, `senha`, `nome`, `data_cadastro`) VALUES
-(8, 'caio', '1816ac0b4bf213b0cfaacd48b6127f12', 'Caio', '2024-01-16 20:19:03'),
-(9, 'caique', '1816ac0b4bf213b0cfaacd48b6127f12', 'Caique', '2024-01-16 20:19:38'),
-(15, 'henrique', '1816ac0b4bf213b0cfaacd48b6127f12', 'Henrique', '2024-01-16 20:22:24');
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `usuario`, `senha`, `tipo`, `data_nasc`) VALUES
+(19, 'Caio Randoli', 'caio@gmail.com', 'caiorandoli', '1816ac0b4bf213b0cfaacd48b6127f12', '1', '0101-01-01'),
+(20, 'João', 'joao@gmail.com', 'joao', '1816ac0b4bf213b0cfaacd48b6127f12', '2', '2021-01-01'),
+(21, 'Júlia', 'julia@gmail.com', 'julia', '1816ac0b4bf213b0cfaacd48b6127f12', '2', '1999-01-25'),
+(22, 'Caique', 'caique@gmail.com', 'caique', '1816ac0b4bf213b0cfaacd48b6127f12', '2', '1998-04-05');
 
 --
 -- Índices para tabelas despejadas
@@ -62,7 +65,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
