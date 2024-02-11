@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Tempo de geração: 28-Jan-2024 às 22:02
+=======
+-- Tempo de geração: 11-Fev-2024 às 17:38
+>>>>>>> 8448505 (update)
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.10
 
@@ -43,7 +47,11 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `usuario`, `senha`, `tipo`, `data_nasc`) VALUES
 (19, 'Caio Randoli', 'caio@gmail.com', 'caiorandoli', '1816ac0b4bf213b0cfaacd48b6127f12', '1', '0101-01-01'),
+<<<<<<< HEAD
 (20, 'João', 'joao@gmail.com', 'joao', '1816ac0b4bf213b0cfaacd48b6127f12', '2', '2021-01-01'),
+=======
+(20, 'João', 'joao@gmail.com', 'joao', '1816ac0b4bf213b0cfaacd48b6127f12', '3', '2021-01-01'),
+>>>>>>> 8448505 (update)
 (21, 'Júlia', 'julia@gmail.com', 'julia', '1816ac0b4bf213b0cfaacd48b6127f12', '2', '1999-01-25'),
 (22, 'Caique', 'caique@gmail.com', 'caique', '1816ac0b4bf213b0cfaacd48b6127f12', '2', '1998-04-05');
 
