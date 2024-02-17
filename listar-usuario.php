@@ -5,21 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Login </title>
-<<<<<<< HEAD
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-=======
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
->>>>>>> 8448505 (update)
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-<<<<<<< HEAD
-        <h1>Lista de Usuários</h1>
-=======
         <h1>Lista de Clientes</h1>
->>>>>>> 8448505 (update)
         <?php
         include("config.php");
 
@@ -48,11 +40,7 @@
                 print "<td>" . $row->data_nasc . "</td>";
                 print "<td>
                     <button onclick=\"location.href='editar-usuario.php?id=" . $row->id . "'\" class='btn btn-success'>Editar</button>
-<<<<<<< HEAD
-                    <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='cadastrar.php?id=" . $row->id . "&acao=excluir'}else{false;}\" class='btn btn-danger'>Excluir</button>    
-=======
                     <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='salvar-usuario.php?id=" . $row->id . "&acao=excluir'}else{false;}\" class='btn btn-danger'>Excluir</button>    
->>>>>>> 8448505 (update)
                 </td>";
                 print "</tr>";
             }
